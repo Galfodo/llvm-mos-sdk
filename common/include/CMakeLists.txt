@@ -7,3 +7,6 @@ configure_file(stdlib.h stdlib.h COPYONLY)
 configure_file(string.h string.h COPYONLY)
 
 configure_file(init_stack.s init_stack.s COPYONLY)
+
+configure_file(stddef.h stddef.h COPYONLY)
+configure_file(stdarg.h stdarg.h COPYONLY)
