@@ -1,10 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(llvm-mos-sdk LANGUAGES C CXX ASM)
-
 if (NOT DEFINED LLVM_MOS)
-message(FATAL_ERROR "LLVM_MOS must be set to the LLVM binary directory.")
+	message(FATAL_ERROR "LLVM_MOS must be set to the LLVM binary directory.")
 endif()
+
+if (WIN32)
+    set(REPLACE "\\" "/" _llvm_mos "${LLVM_MOS}")
+	set(CMAKE_RC_COMPILER "${_llvm_mos}/clang.exe")
+endif ()
+
+project(llvm-mos-sdk LANGUAGES C CXX ASM)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
